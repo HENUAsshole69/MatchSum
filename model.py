@@ -8,7 +8,7 @@ from transformers import BertModel, RobertaModel, DistilBertModel
 
 class MatchSum(nn.Module):
 
-    def __init__(self, candidate_num, encoder, hidden_size=768):
+    def __init__(self, candidate_num, encoder, hidden_size=312):
         super(MatchSum, self).__init__()
 
         self.hidden_size = hidden_size
@@ -17,7 +17,7 @@ class MatchSum(nn.Module):
         if encoder == 'bert':
             self.encoder = DistilBertModel.from_pretrained('distilbert-base-uncased')
         elif encoder == 'tinybert':
-            self.encoder = tinybert.BertModel.from_pretrained('General_TinyBERT_6L_768D')
+            self.encoder = tinybert.BertModel.from_pretrained('General_TinyBERT_4L_312D')
         else:
             self.encoder = RobertaModel.from_pretrained('distilroberta-base')
 
