@@ -123,9 +123,9 @@ if __name__ == '__main__':
     parser.add_argument('--gpus', required=True,
                         help='available gpus for training(separated by commas)', type=str)
     parser.add_argument('--encoder', required=True,
-                        help='the encoder for matchsum (bert/roberta)', type=str)
+                        help='the encoder for matchsum (bert/roberta/tinybert)', type=str)
 
-    parser.add_argument('--batch_size', default=16,
+    parser.add_argument('--batch_size', default=1,
                         help='the training batch size', type=int)
     parser.add_argument('--accum_count', default=2,
                         help='number of updates steps to accumulate before performing a backward/update pass', type=int)
