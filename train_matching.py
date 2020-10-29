@@ -100,7 +100,7 @@ def test_model(args):
         print('Current model is {}'.format(cur_model))
 
         # load model
-        model = torch.load(join(args.save_path, cur_model))
+        model = torch.load(join(args.save_path, 'best_MatchSum_ROUGE_'+cur_model))
     
         # configure testing
         dec_path, ref_path = get_result_path(args.save_path, cur_model)
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     parser.add_argument('--encoder', required=True,
                         help='the encoder for matchsum (bert/roberta/tinybert)', type=str)
 
-    parser.add_argument('--batch_size', default=1,
+    parser.add_argument('--batch_size', default=2,
                         help='the training batch size', type=int)
     parser.add_argument('--accum_count', default=2,
                         help='number of updates steps to accumulate before performing a backward/update pass', type=int)
